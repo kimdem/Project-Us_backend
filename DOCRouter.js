@@ -126,15 +126,18 @@ router.get("/loadDOC/:docId", async (req, res) => {
 router.post("/editor_pdf", async (req, res) => {
     const  html = req.body;
     try {
+        console.log("pdf 변환 시작");
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
         await page.setContent(html, { waitUntil: 'networkidle0' });
         const pdfBuffer = await page.pdf({ format: 'A4' });
         await browser.close();
+        console.log("set전");
         res.set({
             'Content-Type': 'application/pdf',
             'Content-Disposition': 'attachment; filename=document.pdf',
         });
+        console.log("pdf 전송 전");
         res.send(Buffer.from(pdfBuffer));
         console.log("pef 변환 전송");
     } catch (error) {
