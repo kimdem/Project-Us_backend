@@ -128,9 +128,13 @@ router.post("/editor_pdf", async (req, res) => {
     try {
         console.log("pdf 변환 시작");
         const browser = await puppeteer.launch();
+        console.log("1");
         const page = await browser.newPage();
+        console.log("2");
         await page.setContent(html, { waitUntil: 'networkidle0' });
+        console.log("3");
         const pdfBuffer = await page.pdf({ format: 'A4' });
+        console.log("4");
         await browser.close();
         console.log("set전");
         res.set({
