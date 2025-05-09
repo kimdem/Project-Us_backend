@@ -134,9 +134,9 @@ router.post("/editor_pdf", async (req, res) => {
         res.set({
             'Content-Type': 'application/pdf',
             'Content-Disposition': 'attachment; filename=document.pdf',
-            'Content-Length': pdfBuffer.length
         });
-        res.send(pdfBuffer);
+        res.send(Buffer.from(pdfBuffer));
+        console.log("pef 변환 전송");
     } catch (error) {
         res.status(500).send('Error generating PDF');
     }
