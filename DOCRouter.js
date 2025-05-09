@@ -1,4 +1,6 @@
 const express = require("express");
+const bodyParser = require('body-parser');
+const puppeteer = require('puppeteer');
 const router = express.Router();
 const db = require("./db");
 
@@ -119,6 +121,25 @@ router.get("/loadDOC/:docId", async (req, res) => {
     } catch(err) {
         console.log("loadDoc: ", err)
         return res.status(500).json({error: "서버오류"});
+    }
+});
+
+router.post("/edior_pdf", async (req, res) => {
+    const  html = req.body;
+    try {
+        const browser = await puppeteer.launch();
+        const page = await browser.newPage();
+        await page.setContent(html, { waitUntil: 'networkidle0' });
+        const pdfBuffer = await page.pdf({ format: 'A4' });
+        await browser.close();
+        res.set({
+            'Content-Type': 'application/pdf',
+            'Content-Disposition': 'attachment; filename=document.pdf',
+            'Content-Length': pdfBuffer.length
+        });
+        res.send(pdfBuffer);
+    } catch (error) {
+        res.status(500).send('Error generating PDF');
     }
 });
 
