@@ -1,5 +1,4 @@
 const express = require("express");
-const bodyParser = require('body-parser');
 const puppeteer = require('puppeteer');
 const router = express.Router();
 const db = require("./db");
