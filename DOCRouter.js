@@ -123,7 +123,7 @@ router.get("/loadDOC/:docId", async (req, res) => {
     }
 });
 
-router.post("/edior_pdf", async (req, res) => {
+router.post("/editor_pdf", async (req, res) => {
     const  html = req.body;
     try {
         const browser = await puppeteer.launch();
