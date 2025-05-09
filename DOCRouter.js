@@ -145,6 +145,7 @@ router.post("/editor_pdf", async (req, res) => {
         res.send(Buffer.from(pdfBuffer));
         console.log("pef 변환 전송");
     } catch (error) {
+        console.log("error: " + error);
         res.status(500).send('Error generating PDF');
     }
 });
