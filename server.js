@@ -22,7 +22,7 @@ app.use("/api/admin", admin);
 
 const io = new Server(server, {
   cors: {
-    origin: "project-us-xqqm.vercel.app",
+    origin: "https://project-us-xqqm.vercel.app",
     methods: ["GET", "POST"],
   },
 });
