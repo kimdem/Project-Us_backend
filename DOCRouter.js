@@ -129,6 +129,7 @@ router.post("/editor_pdf", express.text({type: "text/html" }), async (req, res) 
         const browser = await puppeteer.launch({headless: true});
         const page = await browser.newPage();
         await page.setContent(html, { waitUntil: 'networkidle0' });
+        await page.addStyleTag({path: path.join(__dirname, `htmltag.css`)});
         const pdfBuffer = await page.pdf({ format: 'A4' });
         await browser.close();
         res.set({
