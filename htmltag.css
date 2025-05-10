@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
 .tiptap blockquote {
     border-left: 4px solid #ff4c60;
     background-color: #2a2a2a;
@@ -34,4 +36,8 @@
 .tiptap .column-resize-handle:hover {
     background: #477bff77;
     cursor: col-resize;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
 }
