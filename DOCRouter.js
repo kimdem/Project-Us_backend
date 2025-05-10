@@ -126,7 +126,6 @@ router.get("/loadDOC/:docId", async (req, res) => {
 
 router.post("/editor_pdf", express.text({type: "text/html" }), async (req, res) => {
     const  html = req.body;
-    console.log("html : " + html);
     try {
         const browser = await puppeteer.launch({headless: true});
         const page = await browser.newPage();
