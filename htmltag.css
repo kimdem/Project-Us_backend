@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
-.tiptap blockquote {
+blockquote {
     border-left: 4px solid #ff4c60;
     background-color: #2a2a2a;
     padding: 12px 16px;
@@ -8,7 +8,7 @@
     margin: 1em 0;
 }
 
-.tiptap table {
+table {
     border-collapse: collapse;
     table-layout: fixed;
     width: 100%;
@@ -17,7 +17,7 @@
     padding: 4px;
     line-height: 1.4;
 }
-.tiptap th, .tiptap td {
+th, td {
     border: 1px solid #888;
     margin: 0;
     padding: 4px;
@@ -26,14 +26,15 @@
     text-align: left;
 }
 
-.tiptap .tableWrapper {
+.tableWrapper {
     overflow-x: auto;
     margin: 1em 0;
 }
-.tiptap table p {
+
+table p {
     margin-top: 0;
 }
-.tiptap .column-resize-handle:hover {
+.column-resize-handle:hover {
     background: #477bff77;
     cursor: col-resize;
 }
